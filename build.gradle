@@ -1,3 +1,41 @@
+// plugins {
+// 	id 'java'
+// 	id 'org.springframework.boot' version '3.5.7'
+// 	id 'io.spring.dependency-management' version '1.1.7'
+// }
+
+// group = 'com.example'
+// version = '0.0.1-SNAPSHOT'
+// description = 'Demo project for Spring Boot'
+
+// java {
+//     toolchain {
+//         languageVersion = JavaLanguageVersion.of(21)
+//     }
+// }
+
+// repositories {
+// 	mavenCentral()
+// }
+
+// dependencies {
+// 	implementation 'org.springframework.boot:spring-boot-starter-web'
+// 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+// 	runtimeOnly 'com.mysql:mysql-connector-j:8.4.0'  // ← මෙන්න change එක!
+// 	compileOnly 'org.projectlombok:lombok:1.18.30'
+//     annotationProcessor 'org.projectlombok:lombok:1.18.30'
+// 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+// 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+// 	<groupId>org.modelmapper</groupId>
+//     <artifactId>modelmapper</artifactId>
+//     <version>3.2.5</version>
+// }
+
+// tasks.named('test') {
+// 	useJUnitPlatform()
+// }
+
+
 plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.5.7'
@@ -21,7 +59,14 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	runtimeOnly 'com.mysql:mysql-connector-j:8.4.0'  // ← මෙන්න change එක!
+	runtimeOnly 'com.mysql:mysql-connector-j:8.4.0'
+	
+	// Lombok
+	compileOnly 'org.projectlombok:lombok:1.18.30'
+	annotationProcessor 'org.projectlombok:lombok:1.18.30'
+	
+	// ModelMapper - හරි syntax එක මෙන්න!
+	implementation 'org.modelmapper:modelmapper:3.2.1'
 	
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
