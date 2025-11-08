@@ -8,6 +8,11 @@ import com.example.demo.dto.UserDTO;
 import com.example.demo.entity.User;
 import com.example.demo.repo.UserRepo;
 
+
+
+import java.util.List;
+import org.modelmapper.TypeToken;
+
 @Service
 @Transactional
 
@@ -21,5 +26,10 @@ public class UserService {
         userRepo.save(modelMapper.map(userDTO, User.class));
         return userDTO;
 
+    }
+
+    public List<UserDTO>getAllUsers(){
+        List<User> userList=userRepo.findAll();
+        return modelMapper.map(userList, new TypeToken<List<UserDTO>>(){}.getType());
     }
 }

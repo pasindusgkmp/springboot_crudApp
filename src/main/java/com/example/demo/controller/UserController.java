@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,9 +23,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/getUser")
-    public String getUser() {
-        return "User data";
+    @GetMapping("/getUsers")
+    public List<UserDTO> getUser() {
+        return userService.getAllUsers();
     }
 
     @PostMapping("/saveUser")
